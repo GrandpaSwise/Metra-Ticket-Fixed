@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Switcher</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        img {
+            width: 300px;
+            height: 300px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="gif" src="gif1.gif" alt="GIF 1">
+
+    <script>
+        const gif = document.getElementById('gif');
+        const gif1 = 'gif1.gif';  // Path to your first GIF
+        const gif2 = 'gif2.gif';  // Path to your second GIF
+
+        // Switch GIFs on touch event
+        gif.addEventListener('touchstart', function () {
+            if (gif.src.includes(gif1)) {
+                gif.src = gif2;
+            } else {
+                gif.src = gif1;
+            }
+        });
+
+        // Prevent long press from showing context menu
+        gif.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+    </script>
+
+</body>
+</html>
